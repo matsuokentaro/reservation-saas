@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
             @isset($header)
@@ -28,9 +28,51 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+<!-- Page Content -->
+    <div class="flex">
+            <!-- Sidebar -->
+            <aside class="w-56 h-screen sticky top-0 bg-gray-800 text-white p-6">
+
+                <h2 class="text-lg font-semibold mb-10 text-center text-gray-300">
+                    Reservation
+                    Manager
+                </h2>
+
+                <nav class="space-y-6">
+
+                    <a href="{{ route('dashboard') }}"
+                    class="block p-2 rounded
+                    {{ request()->routeIs('dashboard')
+                            ? 'bg-blue-600 text-white'
+                            : 'hover:text-blue-300' }}">
+                        📊 Dashboard
+                    </a>
+
+                    <a href="{{ route('reservations.index') }}"
+                    class="block p-2 rounded
+                    {{ request()->routeIs('reservations.*')
+                        ? 'bg-blue-600 text-white'
+                        : 'hover:text-blue-300' }}">
+                        📅 予約管理
+                    </a>
+
+                    <a href="{{ route('shops.index') }}"
+                    class="block p-2 rounded
+                    {{ request()->routeIs('shops.*')
+                            ? 'bg-blue-600 text-white'
+                            : 'hover:text-blue-300' }}">
+                        🏢 店舗管理
+                    </a>
+
+                </nav>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 p-6">
                 {{ $slot }}
             </main>
+        </div>
         </div>
     </body>
 </html>

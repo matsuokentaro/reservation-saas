@@ -22,3 +22,40 @@
 .btn-danger {
     @apply bg-red-600 hover:bg-red-700;
 }
+
+.btn-completed {
+    background-color: #6b7280;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-cancel {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #d97706;
+}
+
+.dashboard-card {
+    min-height: 100px !important;
+
+    display: flex !important;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.btn-today {
+    background-color: #8b5cf6;
+    color: white;
+}
