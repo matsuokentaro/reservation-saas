@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -55,7 +56,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         Reservation::create([
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
             'shop_id' => $request->shop_id,
             'customer_name' => $request->customer_name,
             'reserved_at' => $request->reserved_at,
