@@ -17,6 +17,10 @@ COPY src/ .
 
 RUN composer install --no-dev --prefer-dist --no-interaction
 
+RUN npm install
+
+RUN npm run build
+
 RUN php artisan migrate --force
 
 EXPOSE 10000

@@ -5,10 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 
-Route::get('/test', function () {
-    return 'OK';
-});
-
 Route::get('/', function () {
     return view('welcome');
 });
