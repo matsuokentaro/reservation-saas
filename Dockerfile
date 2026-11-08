@@ -14,6 +14,12 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+
+RUN apt-get install -y nodejs
+
+RUN docker-php-ext-install pdo_mysql pdo_pgsql zip
+
 COPY src/ .
 
 RUN composer install --no-dev --prefer-dist --no-interaction
