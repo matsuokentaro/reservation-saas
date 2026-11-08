@@ -17,6 +17,8 @@ COPY src/ .
 
 RUN composer install --no-dev --prefer-dist --no-interaction
 
+RUN php artisan migrate --force
+
 EXPOSE 10000
 
 CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
